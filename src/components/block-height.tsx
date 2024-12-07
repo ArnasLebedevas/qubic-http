@@ -14,14 +14,19 @@ const BlockHeight: React.FC = () => {
         setBlockHeight(null);
       }
     };
+
     fetchBlockHeight();
+
+    const intervalId = setInterval(fetchBlockHeight, 5000);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">Block Height</h2>
+    <div className="p-6 bg-[#8bf9e81a] rounded-lg shadow-md transition hover:shadow-lg">
+      <h2 className="text-xl font-bold text-gray-800 mb-4">Block Height</h2>
       {blockHeight !== null ? (
-        <p className="text-blue-600">Block Height: {blockHeight}</p>
+        <p className="text-blue-600 text-lg">Block Height: {blockHeight}</p>
       ) : (
         <p className="text-gray-500">Loading block height...</p>
       )}

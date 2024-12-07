@@ -24,19 +24,19 @@ const BalanceChecker: React.FC = () => {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md mx-auto">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">
+    <div className="p-6 bg-[#8bf9e81a] rounded-lg shadow-md transition hover:shadow-lg">
+      <h2 className="text-xl font-bold text-gray-800 mb-4">
         Check Balance
       </h2>
       <input
         type="text"
-        className="w-full p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Enter Identity"
         value={identity}
         onChange={(event) => setIdentity(event.target.value)}
       />
-      <div className="flex flex-wrap gap-2 mb-4 flex-col">
-        <h6 className="font-bold">TESTING DATA:</h6>
+      <div className="flex flex-wrap gap-2 mb-4">
+        <h6 className="font-bold text-gray-700">Suggestions:</h6>
         {suggestions.map((text, index) => (
           <span
             key={index}
@@ -48,13 +48,15 @@ const BalanceChecker: React.FC = () => {
         ))}
       </div>
       <button
-        className="w-full p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+        className="w-full p-3 bg-[rgb(13,18,28)] text-white rounded-lg hover:bg-[rgb(29,40,61)] transition-colors font-medium"
         onClick={handleCheckBalance}
       >
         Check Balance
       </button>
       {balance && (
-        <p className="mt-4 text-green-600 font-medium">Balance: {balance}</p>
+        <p className="mt-4 text-green-600 font-medium text-lg">
+          Balance: {balance}
+        </p>
       )}
     </div>
   );
